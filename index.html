@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Blink Guardian</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+text-align:center;
+background:#f2f2f2;
+margin-top:50px;
+}
+
+h1{
+color:#333;
+}
+
+select, button{
+padding:12px;
+font-size:18px;
+margin:10px;
+}
+
+#alertBox{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+align-items:center;
+justify-content:center;
+z-index:9999;
+}
+
+#alertText{
+background:yellow;
+color:black;
+font-size:70px;
+font-weight:bold;
+padding:50px;
+border-radius:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Goz Kirpma Hatirlaticisi</h1>
+
+<p>Nem Seviyesi</p>
+<select id="humidity">
+<option>Az</option>
+<option>Orta</option>
+<option>Cok</option>
+</select>
+
+<p>Sicaklik Seviyesi</p>
+<select id="temperature">
+<option>Dusuk</option>
+<option>Orta</option>
+<option>Yuksek</option>
+</select>
+
+<br>
+
+<button onclick="startApp()">Baslat</button>
+
+<div id="alertBox">
+<div id="alertText">GOZ KIRP!</div>
+</div>
+
+<script>
+
+let interval;
+
+function startApp(){
+
+clearInterval(interval);
+
+interval = setInterval(function(){
+showAlert();
+},5000);
+
+}
+
+function showAlert(){
+
+let alertBox=document.getElementById("alertBox");
+
+alertBox.style.display="flex";
+
+setTimeout(function(){
+alertBox.style.display="none";
+},1500);
+
+}
+
+</script>
+
+</body>
+</html>
